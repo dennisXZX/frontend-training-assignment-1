@@ -8,6 +8,8 @@
 
 - Display a list of 8 robots
 
-- Support robot search by name
+- Support robot search by name (case insensitive)
+
+- Handle no search result
 
 - Keep components re-usable in mind
