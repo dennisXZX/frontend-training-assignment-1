@@ -3,6 +3,7 @@ import CardList from './components/card-list/card-list.component'
 import SearchBar from './components/search-bar/search-bar.component'
 import Title from './components/title/title.component'
 import './App.css'
+import NoResult from './components/no-result/no-result.component'
 
 class App extends Component {
   state = {
@@ -28,6 +29,8 @@ class App extends Component {
       return monsterName.includes(searchText)
     })
 
+    const isNoResult = filteredMonsters.length <= 0;
+
     return (
       <div className='App'>
         <Title title="Your Monster Army" />
@@ -36,6 +39,11 @@ class App extends Component {
           handleChange={this.handleChange}
         />
         <CardList monsters={filteredMonsters} />
+
+        <NoResult
+          message="No Search Results!"
+          isNoResult={isNoResult}
+        />
       </div>
     )
   }

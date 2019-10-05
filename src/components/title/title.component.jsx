@@ -3,7 +3,7 @@ import './title.styles.css'
 
 const Title = ({ title }) => {
   return (
-    <h1>{title}</h1>
+    <h1 className='title'>{title}</h1>
   )
 }
 
