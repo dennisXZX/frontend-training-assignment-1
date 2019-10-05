@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import CardList from './components/card-list/card-list.component'
 import SearchBar from './components/search-bar/search-bar.component'
+import Title from './components/title/title.component'
 import './App.css'
 
 class App extends Component {
@@ -29,12 +30,11 @@ class App extends Component {
 
     return (
       <div className='App'>
-        <h1>Your Monster Army</h1>
+        <Title title="Your Monster Army" />
         <SearchBar
           placeholder='search monsters'
           handleChange={this.handleChange}
         />
-
         <CardList monsters={filteredMonsters} />
       </div>
     )

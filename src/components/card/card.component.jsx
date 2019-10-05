@@ -2,14 +2,14 @@ import React from 'react'
 import './card.styles.css'
 
 const Card = props => {
-  const { monster } = props
-  const robotUrl = `https://robohash.org/${monster.id}?set=set1&size=220x220`;
+  const { monster: { email, name, id } } = props
+  const robotUrl = `https://robohash.org/${id}?set=set1&size=220x220`;
 
   return (
     <div className='card-container'>
-      <img alt={monster.name} src={robotUrl} />
-      <h2>{monster.name}</h2>
-      <div>{monster.email}</div>
+      <img alt={name} src={robotUrl} />
+      <h2>{name}</h2>
+      <div>{email}</div>
     </div>
   )
 }
