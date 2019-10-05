@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import CardList from './components/card-list/card-list.component'
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    monsters: []
+  }
+
+  componentDidMount () {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(monsters => monsters.slice(0, 8))
+      .then(slicedMonsters => this.setState({ monsters: slicedMonsters }))
+  }
+
+  render () {
+    const { monsters } = this.state
+
+    return (
+      <div className='App'>
+        <CardList monsters={monsters} />
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
