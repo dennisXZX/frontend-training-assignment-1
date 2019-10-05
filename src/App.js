@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import CardList from './components/card-list/card-list.component'
+import SearchBar from './components/search-bar/search-bar.component'
 import './App.css'
 
 class App extends Component {
   state = {
-    monsters: []
+    monsters: [],
+    searchText: ''
   }
 
   componentDidMount () {
@@ -14,12 +16,26 @@ class App extends Component {
       .then(slicedMonsters => this.setState({ monsters: slicedMonsters }))
   }
 
+  handleChange = event => this.setState({ searchText: event.target.value.toLowerCase() })
+
   render () {
-    const { monsters } = this.state
+    const { monsters, searchText } = this.state
+
+    const filteredMonsters = monsters.filter(monster => {
+      const monsterName = monster.name.toLowerCase();
+
+      return monsterName.includes(searchText)
+    })
 
     return (
       <div className='App'>
-        <CardList monsters={monsters} />
+        <h1>Your Monster Army</h1>
+        <SearchBar
+          placeholder='search monsters'
+          handleChange={this.handleChange}
+        />
+
+        <CardList monsters={filteredMonsters} />
       </div>
     )
   }
