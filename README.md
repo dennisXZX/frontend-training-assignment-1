@@ -1,5 +1,7 @@
 ### Front End Training Assignment 1
 
+This is the first milestone assignment for backend developers @ A&G who are interested in extending into front end domain.
+
 #### Requirements
 
 - Data endpoint: https://jsonplaceholder.typicode.com/users
