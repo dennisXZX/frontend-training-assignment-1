@@ -1,4 +1,4 @@
-### Front End Training Assignment 1
+### Front End Training Assignment 1 [![CircleCI](https://circleci.com/gh/dennisXZX/frontend-training-assignment-1.svg?style=svg)](https://circleci.com/gh/dennisXZX/frontend-training-assignment-1)
 
 This is the first milestone assignment for backend developers @ A&G who are interested in extending into front end domain.
 
